@@ -1,88 +1,58 @@
 {% extends "home/basic.html" %}
 {% block title %}Contact Us - BlogLikho{% endblock %}
 {% block body %}
-  <div class="container my-4">
+<div class="container">
+  <div class="container my-4" style="text-align:center;">
 
     <h1>Contact Us</h1>
 
 
   </div>
-  <div class="container my-7">
-    <div class="row">
-      <div class="col">
-        <input type="text" class="form-control" placeholder="First name" aria-label="First name">
-      </div>
-      <div class="col">
-        <input type="text" class="form-control" placeholder="Last name" aria-label="Last name">
-      </div>
-    </div>
-    
+  <form method="POST" action="/ContactUs">{% csrf_token %}
+  <div class="mb-4">
+    <label for="name" class="form-label"><b>Enter Full Name</b></label>
+    <input type="text" class="form-control" id="name" name="name" placeholder="John Doe">
   </div>
-  <div class="container my-4">
-    <div class="row">
-      <div class="col">
-        <input type="email" class="form-control" placeholder="Email Address" aria-label="Email Address">
-      </div>
-      <div class="col">
-        <input type="password" class="form-control" placeholder="Password" aria-label="Password">
-      </div>
-    </div>
-
+  <div class="mb-4">
+    <label for="email" class="form-label"><b>Enter Email</b></label>
+    <input type="email" class="form-control" id="email" name="email" placeholder="johndoe@gmail.com">
   </div>
-  <div class="container my=4">
-    <h2>Are You ?</h2>
+  <div class="mb-4">
+    <label for="phone" class="form-label"><b>Enter Phone Number</b></label>
+    <input type="number" class="form-control" id="phone" name="phone" placeholder="Phone Number">
+  </div>
+  <div class="mb-4">
+    <label for="check" class="form-label"><b>Area of Concern</b></label>
   <div class="form-check">
-    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-    <label class="form-check-label" for="flexRadioDefault1">
-      Student
-    </label>
-  </div>
-  <div class="form-check">
-    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-    <label class="form-check-label" for="flexRadioDefault2">
-      Working Professional
-    </label>
-
-    
-  </div>
-</div>
-<div class="container my-4">
-  <h2>Area of your concern</h2>
-  <div class="form-check">
-    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+    <input class="form-check-input" type="checkbox" name="check1" id="check1">
     <label class="form-check-label" for="flexCheckDefault">
       Default checkbox
     </label>
   </div>
   <div class="form-check">
-    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+    <input class="form-check-input" type="checkbox" name="check2" id="check2">
     <label class="form-check-label" for="flexCheckChecked">
       Checked checkbox
     </label>
   </div>
   <div class="form-check">
-    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecke" checked>
+    <input class="form-check-input" type="checkbox" name="check3" id="check3">
     <label class="form-check-label" for="flexCheckChecke">
       Checked checkbox
     </label>
   </div>
   <div class="form-check">
-    <input class="form-check-input" type="checkbox" value="" id="flexCheckCheck" checked>
+    <input class="form-check-input" type="checkbox" name="check4" id="check4">
     <label class="form-check-label" for="flexCheckCheck">
       Checked checkbox
     </label>
   </div>
-  <div class="form-check">
-    <input class="form-check-input" type="checkbox" value="" id="flexCheck" checked>
-    <label class="form-check-label" for="flexCheck">
-      Checked checkbox
-    </label>
-  </div>
 </div>
-<div class='container my-4'>
-  <div class="form-floating">
-    <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+  <div class="form-floating mb-4">
+    <textarea class="form-control" id="feedback" name="feedback" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
     <label for="floatingTextarea2">Comments/Feedback</label>
   </div>
+<button type="submit" class="btn btn-primary mb-4">Primary</button>
+</form>
 </div>
 {% endblock %}
