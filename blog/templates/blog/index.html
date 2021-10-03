@@ -1,12 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h2>Hello this is my blog home page</h2>
-</body>
-</html>
+{% extends "blog/basic.html" %}
+{% block activeblogs %}active{% endblock %}
+{% block title %}Blogs - BlogLikho{% endblock %}
+{% load static %}
+{% block body %}
+<div class="container my-4">
+<div class="row mb-2">
+{% for blog_item in myblogs %}
+    <div class="col-md-6">
+      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div class="col p-4 d-flex flex-column position-static">
+          <strong class="d-inline-block mb-2 text-success">{{blog_item.author}}</strong>
+          <h3 class="mb-0">{{blog_item.title}}</h3>
+          <div class="mb-1 text-muted">{{blog_item.pub_date}}</div>
+          <p class="card-text mb-auto">{{blog_item.content1 | truncatewords:13}}</p>
+          <button type="button" class="btn btn-primary" style="width: fit-content;"><a href="#" class="stretched-link" style="text-decoration:none; color:white;">Continue reading</a></button>
+        </div>
+        <div class="col-auto d-none d-lg-block">
+          <img src="/media/{{blog_item.image}}" class="bd-placeholder-img" width="250" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title>
+
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  {% endblock %}
