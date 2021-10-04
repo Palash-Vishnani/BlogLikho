@@ -8,3 +8,9 @@ def index(request):
     params={"myblogs":myblogs}
     return render(request,"blog/index.html",params)
 
+def blogpost(request,blogid):
+    post=BlogPost.objects.get(blog_id=blogid)
+    query_set=BlogPost.objects.all()
+    params={"post":post,"range":len(query_set)}
+    return render(request,"blog/blogpost.html",params)
+

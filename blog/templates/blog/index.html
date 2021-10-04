@@ -12,8 +12,8 @@
           <strong class="d-inline-block mb-2 text-success">{{blog_item.author}}</strong>
           <h3 class="mb-0">{{blog_item.title}}</h3>
           <div class="mb-1 text-muted">{{blog_item.pub_date}}</div>
-          <p class="card-text mb-auto">{{blog_item.content1 | truncatewords:13}}</p>
-          <button type="button" class="btn btn-primary" style="width: fit-content;"><a href="#" class="stretched-link" style="text-decoration:none; color:white;">Continue reading</a></button>
+          <p class="card-text mb-auto" style="margin-bottom: revert!important;">{{blog_item.content1 | truncatewords:10}}</p>
+          <button type="button" class="btn btn-primary" style="width: fit-content;"><a href="/blogs/blogpost/{{blog_item.blog_id}}" class="stretched-link" style="text-decoration:none; color:white;">Continue reading</a></button>
         </div>
         <div class="col-auto d-none d-lg-block">
           <img src="/media/{{blog_item.image}}" class="bd-placeholder-img" width="250" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title>
