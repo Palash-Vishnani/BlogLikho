@@ -8,5 +8,7 @@ urlpatterns=[
     path('blogpost/<int:blogid>',views.blogpost,name="blogpost"),
     path("signup",views.handleSignup,name="signup"),
     path("login",views.handleLogin,name="login"),
-    path("logout",views.handleLogout,name="logout")
+    path("logout",views.handleLogout,name="logout"),
+    # API to post a comment
+    path("postcomment",views.postcomment,name="postcomment")
 ]

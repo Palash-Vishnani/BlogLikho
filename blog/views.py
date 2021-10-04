@@ -1,6 +1,6 @@
 from django.http.response import HttpResponse, HttpResponseNotAllowed
 from django.shortcuts import render,redirect
-from blog.models import BlogPost
+from blog.models import BlogComment, BlogPost
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth import authenticate,login,logout
@@ -13,8 +13,9 @@ def index(request):
 
 def blogpost(request,blogid):
     post=BlogPost.objects.get(blog_id=blogid)
+    comments=BlogComment.objects.filter(post=post)
     query_set=BlogPost.objects.all()
-    params={"post":post,"range":len(query_set)}
+    params={"post":post,"range":len(query_set),"comments":comments}
     return render(request,"blog/blogpost.html",params)
 
 def handleSignup(request):
@@ -66,3 +67,14 @@ def handleLogout(request):
     logout(request)
     messages.success(request, "You have successfully logged out.")
     return redirect("/blogs")
+
+def postcomment(request):
+    if request.method=="POST":
+        comment=request.POST.get("comment")
+        user=request.user
+        postId=request.POST.get("postId")
+        post=BlogPost.objects.get(blog_id=postId)
+        comment=BlogComment(comment=comment,user=user,post=post)
+        comment.save()
+        messages.success(request,"Your comment is posted successfully.")
+    return redirect(f"/blogs/blogpost/{postId}")
