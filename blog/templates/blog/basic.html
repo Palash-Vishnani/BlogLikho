@@ -60,20 +60,6 @@
                     <li class="nav-item">
                         <a class="nav-link {% block activeabout %}{% endblock %}" href="/About">About</a>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            Dropdown
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="editor.html">Write a Blog</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
-                        </ul>
-                    </li>
                     <li class="nav-item">
                         <a class="nav-link {% block activecontact %}{% endblock %}" href="/ContactUs">Contact Us</a>
                     </li>
@@ -83,14 +69,31 @@
                     <button class="btn btn-outline-success" type="submit">Search</button>
                 </form>
                 <div class="mx-2">
+                    {% if user.is_authenticated %}
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" style="padding:0px!important; display:unset!important; color: white;" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Hello {{request.user}}
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown" style="margin-top: 1.125rem; margin-left: -50px;">
+                            <li><a class="dropdown-item" href="editor.html">Write a Blog</a></li>
+                            <li><a class="dropdown-item" href="#">Refer Sample Blog</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="/logout">Logout</a></li>
+                        </ul>
+                    </li>
+                {% else %}
                     <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#LoginModal">Login</button>
                     <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#SignUpModal">SignUp</button>
+                {% endif %}  
                 </div>
             </div>
         </div>
     </nav>
     {% for message in messages %}
-    <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+    <div class="alert alert-{{message.tags}} alert-dismissible fade show" style="margin-bottom:0px;" role="alert">
   <strong>Message!</strong> {{message}}
   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 </div>
@@ -105,34 +108,24 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form>
+                    <form action="/login" method="POST">{% csrf_token %}
                         <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Email address</label>
-                            <input type="email" class="form-control" id="exampleInputEmail1"
-                                aria-describedby="emailHelp">
-                            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                            <label for="name" class="form-label">Enter Username</label>
+                            <input type="text" class="form-control" id="name" name="name">
                         </div>
                         <div class="mb-3">
-                            <label for="exampleInputPassword1" class="form-label">Password</label>
-                            <input type="password" class="form-control" id="exampleInputPassword1">
-                        </div>
-                        <div class="mb-3 form-check">
-                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                            <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                            <label for="password" class="form-label">Enter Password</label>
+                            <input type="password" class="form-control" id="password" name="password">
                         </div>
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-
                 </div>
             </div>
         </div>
     </div>
 
 
-    <!--SignUp Modal -->
+     <!--SignUp Modal -->
     <div class="modal fade" id="SignUpModal" tabindex="-1" aria-labelledby="SignUpModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -141,39 +134,40 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form>
+                    <form action="/signup" method="POST">{% csrf_token %}
                         <div class="mb-3">
-                            <label for="exampleInputFullName" class="form-label">Enter Your Full name</label>
-                            <input type="text" class="form-control" id="exampleInputFullName">
+                            <label for="username" class="form-label">Enter Username</label>
+                            <input type="text" class="form-control" id="username" name="username" required>
                         </div>
                         <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Email address</label>
-                            <input type="email" class="form-control" id="exampleInputEmail1"
-                                aria-describedby="emailHelp">
+                            <label for="fname" class="form-label">Enter Your First name</label>
+                            <input type="text" class="form-control" id="fname" name="fname" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="lname" class="form-label">Enter Your Last name</label>
+                            <input type="text" class="form-control" id="lname" name="lname" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Enter Email address</label>
+                            <input type="email" class="form-control" id="email" name="email"
+                                aria-describedby="emailHelp" required>
                             <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
                         </div>
                         <div class="mb-3">
-                            <label for="exampleInputPassword1" class="form-label">Password</label>
-                            <input type="password" class="form-control" id="exampleInputPassword1">
+                            <label for="pass1" class="form-label">Enter Password</label>
+                            <input type="password" class="form-control" id="pass1" name="pass1" required>
                         </div>
                         <div class="mb-3">
-                            <label for="exampleInputconfirm" class="form-label">Confirm Password</label>
-                            <input type="text" class="form-control" id="exampleInputconfirm">
-                        </div>
-                        <div class="mb-3 form-check">
-                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                            <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                            <label for="pass2" class="form-label">Confirm Password</label>
+                            <input type="password" class="form-control" id="pass2" name="pass2" required>
                         </div>
                         <button type="submit" class="btn btn-primary">Create Account</button>
                     </form>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
             </div>
         </div>
     </div>
+
 
 
     <!-- Optional JavaScript; choose one of the two! -->
