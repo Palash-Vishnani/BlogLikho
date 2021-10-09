@@ -1,0 +1,32 @@
+{% extends "blog/basic.html" %}
+{% block title %}Blogs - BlogLikho{% endblock %}
+{% load static %}
+{% block body %}
+{% if searchposts|length == 0 %}
+<div class="container my-4">
+<p aria-level="3" role="heading" style="padding-top:.33em">Your search - <span><b>{{query}}</b></span> - did not match any documents.</p>
+<p style="margin-top:1em">Suggestions:</p>
+<ul style="margin-left:1.3em;margin-bottom:2em"><li>Make sure that all words are spelled correctly.</li><li>Try different keywords.</li><li>Try more general keywords.</li><li>Try fewer keywords.</li></ul>
+</div>
+{% else %}
+<div class="container my-4">
+<div class="row mb-2">
+{% for item in searchposts %}
+    <div class="col-md-6">
+      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div class="col p-4 d-flex flex-column position-static">
+          <strong class="d-inline-block mb-2 text-success">{{item.author}}</strong>
+          <h3 class="mb-0">{{item.title}}</h3>
+          <div class="mb-1 text-muted">{{item.pub_date}}</div>
+          <p class="card-text mb-auto" style="margin-bottom: revert!important;">{{item.content1 | truncatewords:10}}</p>
+          <button type="button" class="btn btn-primary" style="width: fit-content;"><a href="/blogs/blogpost/{{item.blog_id}}" class="stretched-link" style="text-decoration:none; color:white;">Continue reading</a></button>
+        </div>
+        <div class="col-auto d-none d-lg-block">
+          <img src="/media/{{item.image}}" class="bd-placeholder-img" width="250" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title>
+
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+    {% endif %}
+  {% endblock %}

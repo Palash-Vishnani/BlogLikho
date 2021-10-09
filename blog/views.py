@@ -18,6 +18,25 @@ def blogpost(request,blogid):
     params={"post":post,"range":len(query_set),"comments":comments}
     return render(request,"blog/blogpost.html",params)
 
+def search(request):
+    messages.success(request, "Search results: ")
+    query=request.POST.get("query")
+    if len(query)>60:
+        searchpost=BlogPost.objects.none()
+    else:
+        q_author=BlogPost.objects.filter(author__icontains=query)
+        q_title=BlogPost.objects.filter(title__icontains=query)
+        q_heading1=BlogPost.objects.filter(heading1__icontains=query)
+        q_content1=BlogPost.objects.filter(content1__icontains=query)
+        q_heading2=BlogPost.objects.filter(heading2__icontains=query)
+        q_content2=BlogPost.objects.filter(content2__icontains=query)
+        q_about=BlogPost.objects.filter(about__icontains=query)
+        searchpost=q_author.union(q_title,q_heading1,q_content1,q_heading2,q_content2,q_about)
+    if searchpost.count()==0:
+        messages.warning(request, "No search results found.")
+    params={"searchposts":searchpost,"query":query}
+    return render(request, "blog/search.html",params)
+
 def handleSignup(request):
     if request.method=="POST":
         username=request.POST.get("username")

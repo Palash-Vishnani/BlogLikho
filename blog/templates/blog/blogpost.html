@@ -76,14 +76,17 @@
             <li><a href="#">Facebook</a></li>
           </ol>
         </div>
+       
         <p>
-        <button type="button" class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" onclick="getURL()">Share</button>
-      </p>
+          <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" onclick="getURL()">
+            Share
+          </button>
+        </p>
         <div class="collapse" id="collapseExample">
-        <div class="card card-body" id="touch">
-          
+          <div class="card card-body" id="text">
+            
+          </div>
         </div>
-      </div>
       </div>
     </div>
   </div>
@@ -100,8 +103,8 @@
         nextpost=`<a class="btn btn-outline-success" href="/blogs/blogpost/${next}">Next</a>`
         $("#nextblog").append(nextpost)
     }
-    function getURL() {
-        var url=window.location.href;
-        document.getElementById("touch").innerHTML=url
-    }
+      function getURL(){
+        var url = window.location.href
+        document.getElementById("text").innerHTML = url
+      };
 {% endblock %}
