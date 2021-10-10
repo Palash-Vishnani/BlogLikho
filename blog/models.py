@@ -8,12 +8,17 @@ class BlogPost(models.Model):
     author=models.CharField(max_length=200)
     title=models.CharField(max_length=300)
     pub_date=models.DateField()
+    category=models.CharField(max_length=200,default="Promotional Blogs")
     heading1=models.CharField(max_length=300)
     content1=models.TextField()
     heading2=models.CharField(max_length=300)
     content2=models.TextField()
     about=models.TextField()
+    likes=models.ManyToManyField(User, related_name="blogpost_like")
     image=models.ImageField(upload_to="blog/images",default="")
+  
+    def number_of_likes(self):
+        return self.likes.count()
 
     def __str__(self):
         return self.title + " by " + self.author

@@ -12,7 +12,7 @@
 
       <article class="blog-post">
         <h2 class="blog-post-title">{{post.heading1}}</h2>
-        <p class="blog-post-meta">{{post.pub_date}} by <a href="#">{{post.author}}</a></p>
+        <p class="blog-post-meta">{{post.pub_date}} by <a href="#">{{post.author}}</a><span style="float:right; margin-right: 20px;">Category: {{post.category}}</span></p>
 
         <p>{{post.content1}}</p>
         <h2>{{post.heading2}}</h2>
@@ -77,10 +77,14 @@
           </ol>
         </div>
        
+        <form action="{% url 'blogpost_like' post.blog_id %}" method="post" class="mb-3">{% csrf_token %}
+          <button type="submit" name="blogpost_id" value="{{post.blog_id}}" class="btn btn-primary">Like</button>&nbsp {{total_likes}} people like this post
+          </form>
         <p>
           <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" onclick="getURL()">
             Share
           </button>
+          
         </p>
         <div class="collapse" id="collapseExample">
           <div class="card card-body" id="text">

@@ -1,9 +1,10 @@
-from django.http.response import HttpResponse, HttpResponseNotAllowed
-from django.shortcuts import render,redirect
+from django.http.response import HttpResponse, HttpResponseRedirect
+from django.shortcuts import render,redirect,get_object_or_404
 from blog.models import BlogComment, BlogPost
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth import authenticate,login,logout
+from django.urls import reverse
 
 # Create your views here.
 def index(request):
@@ -11,11 +12,17 @@ def index(request):
     params={"myblogs":myblogs}
     return render(request,"blog/index.html",params)
 
+def BlogPostLike(request, pk):
+    post = get_object_or_404(BlogPost, blog_id=request.POST.get("blogpost_id"))
+    post.likes.add(request.user)
+    return HttpResponseRedirect(reverse('blogpost', args=[str(pk)]))
+
 def blogpost(request,blogid):
     post=BlogPost.objects.get(blog_id=blogid)
     comments=BlogComment.objects.filter(post=post)
     query_set=BlogPost.objects.all()
-    params={"post":post,"range":len(query_set),"comments":comments}
+    total_likes=post.number_of_likes()
+    params={"post":post,"range":len(query_set),"comments":comments,"total_likes":total_likes}
     return render(request,"blog/blogpost.html",params)
 
 def search(request):
