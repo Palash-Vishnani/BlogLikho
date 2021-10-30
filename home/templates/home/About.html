@@ -1,9 +1,8 @@
-{% extends "home/basic.html" %}
+{% extends 'home/basic.html' %}
+{% block title %}About Us - BlogLikho{% endblock %}
 {% block activeabout %}active{% endblock %}
-  {% block title %}About Us - BlogLikho{% endblock %}
 
-
-    {% block css %}
+  {% block css %}
       .bd-placeholder-img {
         font-size: 1.125rem;
         text-anchor: middle;
@@ -17,13 +16,14 @@
           font-size: 3.5rem;
         }
       }
-    {% endblock %}
-    
-{% block body %}
-    <!-- Custom styles for this template -->
-     <link href="carousel.css" rel="stylesheet">
-
+  {% endblock %}
+  {% load static %}
+  {% block body %}
+    <div class="container">
     <main>
+    <div class="container my-4" style="text-align:center;">
+    <h1>About Us</h1>
+    </div>
 
       <!-- Marketing messaging and featurettes
       ================================================== -->
@@ -36,111 +36,136 @@
             <div class="col-lg-4">
 
 
-              <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg"
-                role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false">
-                <title>Placeholder</title>
-                <rect width="100%" height="100%" fill="#777"></rect><text x="50%" y="50%" fill="#777"
-                  dy=".3em">140x140</text>
-              </svg>
+              <img class="bd-placeholder-img rounded-circle" width="140" height="140" src="{% static 'home/my_photo.jpg' %}" alt=" ">
 
-              <h2>Heading</h2>
-              <p>Some representative placeholder content for the three columns of text below the carousel. This is the
-                first column.</p>
-              <p><a class="btn btn-secondary" href="#">View details »</a></p>
+              <h2>Shreesh Singh</h2>
+              <p>To know more about me please visit my LinkedIn profile by clickin the below botton.</p>
+              <p><a class="btn btn-secondary" target="_blank" href="https://www.linkedin.com/in/shreesh-singh-7324a4194">LinkedIn »</a></p>
             </div><!-- /.col-lg-4 -->
             <div class="col-lg-4">
-              <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg"
-                role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false">
-                <title>Placeholder</title>
-                <rect width="100%" height="100%" fill="#777"></rect><text x="50%" y="50%" fill="#777"
-                  dy=".3em">140x140</text>
-              </svg>
+              <img class="bd-placeholder-img rounded-circle" width="140" height="140" src="{% static 'home/palash-photo.jpg' %}" alt=" ">
 
-              <h2>Heading</h2>
-              <p>Another exciting bit of representative placeholder content. This time, we've moved on to the second
-                column.</p>
-              <p><a class="btn btn-secondary" href="#">View details »</a></p>
+              <h2>Palash Vishnani</h2>
+              <p>Click the below button to check out my projects and profile on LinkedIn.</p>
+              <p><a class="btn btn-secondary" target="_blank" href="https://www.linkedin.com/in/palash-vishnani-957478193">LinkedIn »</a></p>
             </div><!-- /.col-lg-4 -->
             <div class="col-lg-4">
-              <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg"
-                role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false">
-                <title>Placeholder</title>
-                <rect width="100%" height="100%" fill="#777"></rect><text x="50%" y="50%" fill="#777"
-                  dy=".3em">140x140</text>
-              </svg>
+              <img class="bd-placeholder-img rounded-circle" width="140" height="140" src="{% static 'home/feedback.jpg' %}" alt=" ">
 
-              <h2>Heading</h2>
-              <p>And lastly this, the third column of representative placeholder content.</p>
-              <p><a class="btn btn-secondary" href="#">View details »</a></p>
+              <h2>Suggestion</h2>
+              <p>Please provide the feedbacks to improve our bloging website</p>
+              <p><a class="btn btn-secondary" href="/ContactUs">Contact Us »</a></p>
             </div><!-- /.col-lg-4 -->
           </div><!-- /.row -->
-</div>
+        </div>
 
-          <!-- START THE FEATURETTES -->
+        <!-- START THE FEATURETTES -->
 
-          <hr class="featurette-divider">
+        <hr class="featurette-divider">
 
-          <div class="row featurette">
-            <div class="col-md-7">
-
-
-              <h2 class="featurette-heading">First featurette heading. <span class="text-muted">It’ll blow your
-                  mind.</span></h2>
-              <p class="lead">Some great placeholder content for the first featurette here. Imagine some exciting prose
-                here.</p>
-            </div>
-            <div class="col-md-5">
-              <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto"
-                src="https://source.unsplash.com/500x500/?nature,water" alt="">
+        <div class="row featurette">
+          <div class="col-md-7">
 
 
-
-            </div>
+            <h2 class="featurette-heading">BlogLikho.com <span class="text-muted"></span></h2>
+            <p class="lead"><strong>BlogLikho is one of fully responsive website and advanced integrated editor which allows user
+              to perform various operations while writing blogs, this editor helps user to make his/her blog
+              intresting and well presentable. We also added the feature of sharing the blogs, commenting on
+              blog and liking the blog, which make this more interactive.
+              This website also has a functionality to get the most popular blog, recent blogs as well.
+              We consider this website as one of our major project which has basic functions with both Front End
+              and Back End functioning properly.
+              For now we are keeping the website as simple as possible to use and with time we will go
+              on adding new features which will assits the users</strong></p>
           </div>
-
-          <hr class="featurette-divider">
-
-          <div class="row featurette">
-            <div class="col-md-7 order-md-2">
-              <h2 class="featurette-heading">Oh yeah, it’s that good. <span class="text-muted">See for yourself.</span>
-              </h2>
-              <p class="lead">Another featurette? Of course. More placeholder content here to give you an idea of how
-                this
-                layout would work with some actual real-world content in place.</p>
-            </div>
-            <div class="col-md-5 order-md-1">
-              <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto"
-                src="https://source.unsplash.com/500x500/?nature,water" alt="">
+          <div class="col-md-5">
+            <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto"
+              src="{% static 'home/Shreesh_palash.jpg' %}" alt="">
 
 
 
-            </div>
           </div>
+        </div>
 
-          <hr class="featurette-divider">
+        <hr class="featurette-divider">
 
-          <div class="row featurette">
-            <div class="col-md-7">
-              <h2 class="featurette-heading">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
-              <p class="lead">And yes, this is the last block of representative placeholder content. Again, not really
-                intended to be actually read, simply here to give you a better view of what this would look like with
-                some
-                actual content. Your content.</p>
-            </div>
-            <div class="col-md-5">
-              <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto"
-                src="https://source.unsplash.com/500x500/?nature,water" alt="">
-
-
-
-            </div>
+        <div class="row featurette">
+          <div class="col-md-7 order-md-2">
+            <h2 class="featurette-heading" style="text-align:center;">Palash Vishnani 
+            </h2>
+        <p class="lead"><strong><pre>
+  Hey, this is Palash Vishnani, a full stack developer and a freelancer. A kick start to my
+  journey of gaining interest in technical and development field took place when I chose science and
+  mathematics (PCM) as my majors after 10th standard. I was studying in St. Mary’s Convent Senior Secondary
+  School, Dewas (CBSC Board) but soon after 11th standard I dropped out of school and took admission in a
+  non-attending dummy school Himalaya Academy (M.P Board), as I was preparing for a National level entrance
+  exam. Currently I am studying in NMIMS, Mukesh Patel School of Technology Management & Engineering,
+  pursuing B.Tech (Bachelor of Technology) focused on Information Technology. After exploring a whole lot of
+  stuff and gaining insights about several programming and development related domains, I finally found a
+  huge interest in full stack web application development and python. Thus, I usually apply django for the
+  scripting part of a website, also the website you are seeing right now is build using HTML, CSS,
+  JavaScript and Django.
+              
+  Always be curious and grateful for whatever you have in your life and make the most out of it because
+  there are times when most of us are a bit doubtful about the decision that we had made in the past but
+  keep exploring and you will definately find your domain of interest.
+        </pre></strong></p>
           </div>
+          <div class="col-md-5 order-md-1">
+            <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto"
+              src="{% static 'home/Palash_photo.jpg' %}" alt="">
 
-          <hr class="featurette-divider">
 
-          <!-- /END THE FEATURETTES -->
 
-        </div><!-- /.container -->
-      
+          </div>
+        </div>
+
+        <hr class="featurette-divider">
+
+        <div class="row featurette">
+          <div class="col-md-7">
+            <h2 class="featurette-heading" style="text-align:center;">Shreesh Singh </h2>
+            <p class="lead"><strong><pre>
+  Hello readers , this is Shreesh singh the front end developer of blogLikho.com and
+  this would be our first fully responsive website which will be deployed on "Google".
+
+  Web Development as well as Software Develpoment are the area of my intrest,
+  I have also designed various product landing pages, survey forms and tribute pages ,
+  and have many projects on Web Scraping and python.
+
+  Guy who loves to code all day plus  have a great interest in  outdoor sports as well.
+  I belong to Varanasi, the city of ghats.
+  I have done my schooling(St. Joseph Convent School Varanasi, ICSE) since LKG to class 10th in Varanasi and
+  +2 from St. Joseph School shaktinagar.
+
+  Just after my class 12th I got admission in Mukesh Patel School of Technology Management and Engineering(MPSTME)
+  and at present I am persuing my Bachelors degree in the department of Information Technology (IT).
+  The aim of my life is to kick start my development career with a great MNC's.
+  </pre></strong>  </p>
+          </div>
+          <div class="col-md-5">
+            <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto"
+              src="{% static 'home/shreesh_photo.jpg' %}" alt="">
+
+
+
+          </div>
+        </div>
+
+        <hr class="featurette-divider">
+
+        <!-- /END THE FEATURETTES -->
+
+      </div><!-- /.container -->
+
     </main>
+    </div>
+
+
+    <script src="/docs/5.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+      crossorigin="anonymous"></script>
+
+
+  <!-- Optional JavaScript; choose one of the two! -->
 {% endblock %}

@@ -77,9 +77,14 @@
           </ol>
         </div>
        
+       {% if user.is_authenticated %}
         <form action="{% url 'blogpost_like' post.blog_id %}" method="post" class="mb-3">{% csrf_token %}
+        
           <button type="submit" name="blogpost_id" value="{{post.blog_id}}" class="btn btn-primary">Like</button>&nbsp {{total_likes}} people like this post
+          
           </form>
+          {% else %}
+           {% endif %}
         <p>
           <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" onclick="getURL()">
             Share

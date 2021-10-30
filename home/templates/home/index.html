@@ -2,6 +2,7 @@
 {% block activehome %}active{% endblock %}
 {% block title %}Home - BlogLikho{% endblock %}
 {% block body %}
+{% load static %}
   <main>
 
     <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
@@ -13,43 +14,34 @@
       </div>
       <div class="carousel-inner">
         <div class="carousel-item">
-          <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"
-            aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
-            <rect width="100%" height="100%" fill="#777"></rect>
-          </svg>
+          <img src="https://source.unsplash.com/1400x400/?pen,paper" alt=" ">
 
           <div class="container">
             <div class="carousel-caption text-start">
-              <h1>Example headline.</h1>
-              <p>Some representative placeholder content for the first slide of the carousel.</p>
+              <h1>Welcome to the world of blogging</h1>
+              <p>Get your amazing blogs published all over the world on BlogLikho.com</p>
               <p><a class="btn btn-lg btn-primary" href="#">Sign up today</a></p>
             </div>
           </div>
         </div>
         <div class="carousel-item active">
-          <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"
-            aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
-            <rect width="100%" height="100%" fill="#777"></rect>
-          </svg>
+          <img src="https://source.unsplash.com/1400x400/?laptops,dairy" alt=" ">
 
           <div class="container">
             <div class="carousel-caption">
-              <h1>Another example headline.</h1>
-              <p>Some representative placeholder content for the second slide of the carousel.</p>
-              <p><a class="btn btn-lg btn-primary" href="#">Learn more</a></p>
+              <h1>Blogs that creates interest in blogging</h1>
+              <p>Write your own technical, Marketing and Business blogs with us and get it published.</p>
+
             </div>
           </div>
         </div>
         <div class="carousel-item">
-          <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"
-            aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
-            <rect width="100%" height="100%" fill="#777"></rect>
-          </svg>
+          <img src="https://source.unsplash.com/1400x400/?travel,water" alt=" ">
 
           <div class="container">
             <div class="carousel-caption text-end">
-              <h1>One more for good measure.</h1>
-              <p>Some representative placeholder content for the third slide of this carousel.</p>
+              <h1>Explore more about you.</h1>
+              <p>Share your amazing experince all across the globe.</p>
               <p><a class="btn btn-lg btn-primary" href="#">Browse gallery</a></p>
             </div>
           </div>
@@ -76,43 +68,28 @@
           <!-- Three columns of text below the carousel -->
           <div class="row">
             <div class="col-lg-4">
-              <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg"
-                role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false">
-                <title>Placeholder</title>
-                <rect width="100%" height="100%" fill="#777"></rect><text x="50%" y="50%" fill="#777"
-                  dy=".3em">140x140</text>
-              </svg>
+              <img class="bd-placeholder-img rounded-circle" width="140" height="140"
+                src="https://source.unsplash.com/300x300/?blogs" alt=" ">
 
-              <h2>Heading</h2>
-              <p>Some representative placeholder content for the three columns of text below the carousel. This is the
-                first
-                column.</p>
+              <h2>Popular Blogs</h2>
+              <p>Click the button given below to get the most popular blogs published on BlogLikho.com</p>
               <p><a class="btn btn-secondary" href="#">View details »</a></p>
             </div><!-- /.col-lg-4 -->
             <div class="col-lg-4">
-              <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg"
-                role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false">
-                <title>Placeholder</title>
-                <rect width="100%" height="100%" fill="#777"></rect><text x="50%" y="50%" fill="#777"
-                  dy=".3em">140x140</text>
-              </svg>
+              <img class="bd-placeholder-img rounded-circle" width="140" height="140"
+                src="https://source.unsplash.com/300x300/?travel" alt=" ">
 
-              <h2>Heading</h2>
-              <p>Another exciting bit of representative placeholder content. This time, we've moved on to the second
-                column.
+              <h2>Research</h2>
+              <p>Blogs which involes research papers on various technical topics of great interest.
               </p>
               <p><a class="btn btn-secondary" href="#">View details »</a></p>
             </div><!-- /.col-lg-4 -->
             <div class="col-lg-4">
-              <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg"
-                role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false">
-                <title>Placeholder</title>
-                <rect width="100%" height="100%" fill="#777"></rect><text x="50%" y="50%" fill="#777"
-                  dy=".3em">140x140</text>
-              </svg>
+              <img class="bd-placeholder-img rounded-circle" width="140" height="140"
+                src="https://source.unsplash.com/300x300/?coding" alt=" ">
 
-              <h2>Heading</h2>
-              <p>And lastly this, the third column of representative placeholder content.</p>
+              <h2>Coding Articles</h2>
+              <p>Explain important or complex topics of Data Structures.</p>
               <p><a class="btn btn-secondary" href="#">View details »</a></p>
             </div><!-- /.col-lg-4 -->
           </div><!-- /.row -->
@@ -121,16 +98,19 @@
           <h1 class="visually-hidden">Heroes examples</h1>
 
           <div class="px-4 py-5 my-5 text-center">
-            <img class="d-block mx-auto mb-4" src="/docs/5.1/assets/brand/bootstrap-logo.svg" alt="" width="72"
-              height="57">
-            <h1 class="display-5 fw-bold">Centered hero</h1>
+
+            <h1 class="display-5 fw-bold">Planning</h1>
             <div class="col-lg-6 mx-auto">
-              <p class="lead mb-4">Quickly design and customize responsive mobile-first sites with Bootstrap, the
-                world’s most popular front-end open source toolkit, featuring Sass variables and mixins, responsive grid
-                system, extensive prebuilt components, and powerful JavaScript plugins.</p>
+              <p class="lead mb-4"><b>The entire process of writing a blog post often takes more than a couple of hours,
+                  even if you can type eighty words per minute and your writing skills are sharp. From the seed of the
+                  idea to finally hitting “Publish,” you might spend several days or maybe even a week “writing” a blog
+                  post, but it’s important to spend those vital hours planning your post and even thinking about your
+                  post
+                  (yes, thinking counts as working if you’re a blogger) before you actually write it.</b></p>
               <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-                <button type="button" class="btn btn-primary btn-lg px-4 gap-3">Primary button</button>
-                <button type="button" class="btn btn-outline-secondary btn-lg px-4">Secondary</button>
+                <p><a class="btn btn-lg btn-primary px-4 gap-3" href="https://www.theminimalists.com/blog/">Know
+                    More</a></p>
+
               </div>
             </div>
           </div>
@@ -138,20 +118,25 @@
           <div class="b-example-divider"></div>
 
           <div class="px-4 pt-5 my-5 text-center border-bottom">
-            <h1 class="display-4 fw-bold">Centered screenshot</h1>
+            <h1 class="display-4 fw-bold">Choose a Topic That Interests YOU</h1>
             <div class="col-lg-6 mx-auto">
-              <p class="lead mb-4">Quickly design and customize responsive mobile-first sites with Bootstrap, the
-                world’s most popular front-end open source toolkit, featuring Sass variables and mixins, responsive grid
-                system, extensive prebuilt components, and powerful JavaScript plugins.</p>
+              <p class="lead mb-4"><b>There’s an old maxim that states, “No fun for the writer, no fun for the reader.”
+                  No
+                  matter what industry you’re working in, as a blogger, you should live and die by this statement.
+
+                  Before you do any of the following steps, be sure to pick a topic that actually interests you. Nothing
+                  –
+                  and I mean NOTHING – will kill a blog post more effectively than a lack of enthusiasm from the writer.
+                  You can tell when a writer is bored by their subject, and it’s so cringe-worthy it’s a little
+                  embarrassing.</b></p>
               <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
-                <button type="button" class="btn btn-primary btn-lg px-4 me-sm-3">Primary button</button>
-                <button type="button" class="btn btn-outline-secondary btn-lg px-4">Secondary</button>
+                <p><a class="btn btn-lg btn-primary px-4 gap-3" href="/blog_ideas">Get Some Ideas</a></p>
               </div>
             </div>
             <div class="overflow-hidden" style="max-height: 30vh;">
               <div class="container px-5">
-                <img src="bootstrap-docs.png" class="img-fluid border rounded-3 shadow-lg mb-4" alt="Example image"
-                  width="700" height="500" loading="lazy">
+                <img src="https://source.unsplash.com/700x300/?heart" class="img-fluid border rounded-3 shadow-lg mb-4"
+                  alt="Example image" width="700" height="500" loading="lazy">
               </div>
             </div>
           </div>
@@ -161,48 +146,70 @@
           <div class="container col-xxl-8 px-4 py-5">
             <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
               <div class="col-10 col-sm-8 col-lg-6">
-                <img src="bootstrap-themes.png" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700"
+                <img src="{% static 'home/outlineblog.png' %}" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700"
                   height="500" loading="lazy">
               </div>
               <div class="col-lg-6">
-                <h1 class="display-5 fw-bold lh-1 mb-3">Responsive left-aligned hero with image</h1>
-                <p class="lead">Quickly design and customize responsive mobile-first sites with Bootstrap, the world’s
-                  most popular front-end open source toolkit, featuring Sass variables and mixins, responsive grid
-                  system, extensive prebuilt components, and powerful JavaScript plugins.</p>
+                <h1 class="display-5 fw-bold lh-1 mb-3">Write an Outline For Your Post</h1>
+                <p class="lead"><b>Great blog posts don’t just happen. Even the best bloggers need a rough idea to keep
+                    them on-track. This is where outlines come in.
+
+                    An outline doesn’t need to be lengthy, or even detailed – it’s just a rough guide to make sure you
+                    don’t ramble on and on about something tangential to your topic.</b></p>
                 <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-                  <button type="button" class="btn btn-primary btn-lg px-4 me-md-2">Primary</button>
-                  <button type="button" class="btn btn-outline-secondary btn-lg px-4">Default</button>
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="b-example-divider"></div>
+
+          <div class="container col-xxl-8 px-4 py-5">
+            <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+              <div class="col-10 col-sm-8 col-lg-6">
+                <img src="https://yourchicgeek.com/wp-content/uploads/2016/01/small-business-business-blogging-tips.png"
+                  class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="500" loading="lazy">
+              </div>
+              <div class="col-lg-6">
+                <h1 class="display-5 fw-bold lh-1 mb-3">Do the Research</h1>
+                <p class="lead"><b>One of the biggest secrets professional bloggers (myself included) don’t want you to
+                    know is that we don’t actually know everything. Truth be told, sometimes we don’t know anything
+                    about a topic before we sit down to write about it.
+                    This doesn’t mean that all bloggers are insincere fakers. On the contrary, many bloggers’ natural
+                    curiosity is what makes them great at what they do. If you blog for a living, you have to be
+                    comfortable jumping from one topic to the next, even if you don’t know anything about it. What
+                    allows us to do this, and to write authoritatively about subject areas that are new to us, is
+                    knowing how to properly research a blog post.</b></p>
+                <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                  <p><a class="btn btn-lg btn-primary px-4 gap-3"
+                      href="https://custom-writing.org/blog/research-topics-on-technology-computer-science">Research
+                      papers</a></p>
                 </div>
               </div>
             </div>
           </div>
 
-          <div class="b-example-divider"></div>
 
-          <div class="container col-xl-10 col-xxl-8 px-4 py-5">
-            <div class="row align-items-center g-lg-5 py-5">
-              <div class="col-lg-7 text-center text-lg-start">
-                <h1 class="display-4 fw-bold lh-1 mb-3">Vertically centered hero sign-up form</h1>
-                <p class="col-lg-10 fs-4">Below is an example form built entirely with Bootstrap’s form controls. Each
-                  required form group has a validation state that can be triggered by attempting to submit the form
-                  without completing it.</p>
-              </div>
-
-            </div>
-          </div>
 
           <div class="b-example-divider"></div>
 
           <div class="container my-5">
             <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
               <div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
-                <h1 class="display-4 fw-bold lh-1">Border hero with cropped image and shadows</h1>
-                <p class="lead">Quickly design and customize responsive mobile-first sites with Bootstrap, the world’s
-                  most popular front-end open source toolkit, featuring Sass variables and mixins, responsive grid
-                  system, extensive prebuilt components, and powerful JavaScript plugins.</p>
+                <h1 class="display-4 fw-bold lh-1">Check Your Facts</h1>
+                <p class="lead"><b>If you’re just starting out, your credibility and authority will take a major hit if
+                    you
+                    publish inaccurate information, and even if you have a blog with millions of loyal readers, your
+                    regulars will be all too eager to jump all over your mistake – just take a look in the comment
+                    sections of publications such as Wired or TechCrunch to see how quickly this can happen.
+
+                    In the event that you fall prey to a well-executed hoax, repeat widely circulated misinformation, or
+                    simply make a mistake, own up to it right away and be transparent about your edits. If you try to
+                    slip
+                    something past your readers, you can bet that they’ll call you out on it, further compounding the
+                    damage. Be honest, be accountable, and fix it – fast.</b></p>
                 <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
-                  <button type="button" class="btn btn-primary btn-lg px-4 me-md-2 fw-bold">Primary</button>
-                  <button type="button" class="btn btn-outline-secondary btn-lg px-4">Default</button>
+
                 </div>
               </div>
               <div class="col-lg-4 offset-lg-1 p-0 overflow-hidden shadow-lg">
@@ -215,14 +222,16 @@
 
           <div class="bg-dark text-secondary px-4 py-5 text-center">
             <div class="py-5">
-              <h1 class="display-5 fw-bold text-white">Dark mode hero</h1>
+              <h1 class="display-5 fw-bold text-white">BlogLikho</h1>
               <div class="col-lg-6 mx-auto">
-                <p class="fs-5 mb-4">Quickly design and customize responsive mobile-first sites with Bootstrap, the
-                  world’s most popular front-end open source toolkit, featuring Sass variables and mixins, responsive
-                  grid system, extensive prebuilt components, and powerful JavaScript plugins.</p>
+                <p class="fs-5 mb-4">BlogLikho is an simple basic website which allow its user to write the beautiful blogs
+                  which inspires other users.
+                  Here, you can get diffrent topics which may be helpful to get the usefull contents for your blog.
+                  BlogLikho has got advanced integrated features and editor which helps user to write effectively.
+                </p>
                 <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-                  <button type="button" class="btn btn-outline-info btn-lg px-4 me-sm-3 fw-bold">Custom button</button>
-                  <button type="button" class="btn btn-outline-light btn-lg px-4">Secondary</button>
+                  <p><a class="btn btn-lg btn-primary px-4 gap-3"
+                    href="/ContactUs">Write Us</a></p>
                 </div>
               </div>
             </div>
@@ -232,6 +241,11 @@
         </main>
         <!-- START THE FEATURETTES -->
 
-
   </main>
+
+
+  <script src="/docs/5.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+    crossorigin="anonymous"></script>
+
 {% endblock %}

@@ -50,6 +50,9 @@ def search(request):
     params={"searchposts":searchpost,"query":query}
     return render(request, "blog/search.html",params)
 
+def blog_ideas(request):
+    return render(request,"home/Blog_Ideas.html")
+
 def handleSignup(request):
     if request.method=="POST":
         username=request.POST.get("username")
