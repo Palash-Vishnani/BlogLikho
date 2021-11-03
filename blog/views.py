@@ -27,7 +27,13 @@ def blogpost(request,blogid):
 
 def search(request):
     messages.success(request, "Search results: ")
+    allBlogs=BlogPost.objects.all()
+    likeslist=[]
+    for i in allBlogs:
+        post_likes=i.number_of_likes()
+        likeslist.append(post_likes)
     query=request.POST.get("query")
+    likesquery=request.POST.get("maxlikes")
     if len(query)>60:
         searchpost=BlogPost.objects.none()
     else:

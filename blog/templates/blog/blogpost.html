@@ -16,7 +16,7 @@
 
         <p>{{post.content1}}</p>
         <h2>{{post.heading2}}</h2>
-        <p>{{post.content2}}</p>
+        <p>{{post.content2|safe}}</p>
         <h3>Sub-heading</h3>
         <p>This is some additional paragraph placeholder content. It has been written to fill the available space and show how a longer snippet of text affects the surrounding content. We'll repeat it often to keep the demonstration flowing, so be on the lookout for this exact same string of text.</p>
         <pre><code>Example code block</code></pre>
@@ -84,6 +84,7 @@
           
           </form>
           {% else %}
+          <p>{{total_likes}} people like this post. Login to like it.</p>
            {% endif %}
         <p>
           <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" onclick="getURL()">
