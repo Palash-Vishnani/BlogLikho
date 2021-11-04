@@ -12,6 +12,9 @@ def index(request):
     params={"myblogs":myblogs}
     return render(request,"blog/index.html",params)
 
+def createblog(request):
+    return render(request,"blog/editor.html")
+
 def BlogPostLike(request, pk):
     post = get_object_or_404(BlogPost, blog_id=request.POST.get("blogpost_id"))
     post.likes.add(request.user)
@@ -27,28 +30,26 @@ def blogpost(request,blogid):
 
 def search(request):
     messages.success(request, "Search results: ")
-    allBlogs=BlogPost.objects.all()
-    likeslist=[]
-    for i in allBlogs:
-        post_likes=i.number_of_likes()
-        likeslist.append(post_likes)
     query=request.POST.get("query")
-    likesquery=request.POST.get("maxlikes")
     if len(query)>60:
         searchpost=BlogPost.objects.none()
     else:
         q_author=BlogPost.objects.filter(author__icontains=query)
         q_title=BlogPost.objects.filter(title__icontains=query)
+        q_category=BlogPost.objects.filter(category__icontains=query)
         q_heading1=BlogPost.objects.filter(heading1__icontains=query)
         q_content1=BlogPost.objects.filter(content1__icontains=query)
         q_heading2=BlogPost.objects.filter(heading2__icontains=query)
         q_content2=BlogPost.objects.filter(content2__icontains=query)
         q_about=BlogPost.objects.filter(about__icontains=query)
-        searchpost=q_author.union(q_title,q_heading1,q_content1,q_heading2,q_content2,q_about)
+        searchpost=q_author.union(q_title,q_category,q_heading1,q_content1,q_heading2,q_content2,q_about)
     if searchpost.count()==0:
         messages.warning(request, "No search results found.")
     params={"searchposts":searchpost,"query":query}
     return render(request, "blog/search.html",params)
+
+def blog_ideas(request):
+    return render(request,"blog/Blog_Ideas.html")
 
 def handleSignup(request):
     if request.method=="POST":

@@ -1,10 +1,11 @@
-from django.http.response import HttpResponse
-from django.shortcuts import redirect, render
+from django.http.response import HttpResponse, HttpResponseRedirect
+from django.shortcuts import redirect, render, get_object_or_404
 from django.contrib import messages
 from home.models import Contact
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate,login,logout
 from blog.models import BlogPost
+from django.urls import reverse
 
 # Create your views here.
 def index(request):
@@ -12,6 +13,9 @@ def index(request):
 
 def about(request):
     return render(request,"home/About.html")
+
+def createblog(request):
+    return render(request,"blog/editor.html")
 
 def contact(request):
     if request.method=="POST":
@@ -31,6 +35,11 @@ def contact(request):
             messages.success(request,"Thanks for your query or feedback.")
     return render(request,"home/ContactUs.html")
 
+def BlogPostLike(request, pk):
+    post = get_object_or_404(BlogPost, blog_id=request.POST.get("blogpost_id"))
+    post.likes.add(request.user)
+    return HttpResponseRedirect(reverse('blogpost', args=[str(pk)]))
+
 def search(request):
     messages.success(request, "Search results: ")
     query=request.POST.get("query")
@@ -39,19 +48,20 @@ def search(request):
     else:
         q_author=BlogPost.objects.filter(author__icontains=query)
         q_title=BlogPost.objects.filter(title__icontains=query)
+        q_category=BlogPost.objects.filter(category__icontains=query)
         q_heading1=BlogPost.objects.filter(heading1__icontains=query)
         q_content1=BlogPost.objects.filter(content1__icontains=query)
         q_heading2=BlogPost.objects.filter(heading2__icontains=query)
         q_content2=BlogPost.objects.filter(content2__icontains=query)
         q_about=BlogPost.objects.filter(about__icontains=query)
-        searchpost=q_author.union(q_title,q_heading1,q_content1,q_heading2,q_content2,q_about)
+        searchpost=q_author.union(q_title,q_category,q_heading1,q_content1,q_heading2,q_content2,q_about)
     if searchpost.count()==0:
         messages.warning(request, "No search results found.")
     params={"searchposts":searchpost,"query":query}
     return render(request, "blog/search.html",params)
 
 def blog_ideas(request):
-    return render(request,"home/Blog_Ideas.html")
+    return render(request,"blog/Blog_Ideas.html")
 
 def handleSignup(request):
     if request.method=="POST":

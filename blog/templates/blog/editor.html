@@ -1,9 +1,20 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <script src='https://cdn.tiny.cloud/1/6aoyapavbyzdpups5j8hy1i14o0omeq8c64apoactiw6tpws/tinymce/5/tinymce.min.js' referrerpolicy="origin">
+{% extends 'blog/basic.html' %}
+
+<script src='https://cdn.tiny.cloud/1/6aoyapavbyzdpups5j8hy1i14o0omeq8c64apoactiw6tpws/tinymce/5/tinymce.min.js' referrerpolicy="origin">
   </script>
-  <script>
+
+{% block body %}
+  <div class="container my-4">
+  <h2>This page is still in progress. Till then go checkout the blogs published by the developers.</h2>
+  {% comment %} <form method="post">
+    <textarea id="mytextarea" name="mytextarea">
+      Hello, World!
+    </textarea>
+  </form> {% endcomment %}
+  </div>
+{% endblock %}
+
+  {% block js %}
     tinymce.init({
       selector: '#mytextarea',
       height: 500,
@@ -21,15 +32,4 @@
     menubar: 'favs file edit view insert format tools table help',
     content_css: 'css/content.css'
     });
-  </script>
-</head>
-
-<body>
-  <h1>TinyMCE Quick Start Guide</h1>
-  <form method="post">
-    <textarea id="mytextarea" name="mytextarea">
-      Hello, World!
-    </textarea>
-  </form>
-</body>
-</html>
+  {% endblock %}
