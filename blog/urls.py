@@ -6,6 +6,7 @@ from django.urls import path
 urlpatterns=[
     path('',views.index,name='bloghome'),
     path("blogs/createblog",views.createblog,name="createblog"),
+    path("popularblogs",views.popularblogs,name="popularblogs"),
     path('blogpost/<int:blogid>',views.blogpost,name="blogpost"),
     path("search",views.search,name="search"),
     path("blog_ideas",views.blog_ideas,name="blog_ideas"),

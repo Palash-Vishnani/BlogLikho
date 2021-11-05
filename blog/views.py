@@ -28,6 +28,17 @@ def blogpost(request,blogid):
     params={"post":post,"range":len(query_set),"comments":comments,"total_likes":total_likes}
     return render(request,"blog/blogpost.html",params)
 
+def popularblogs(request):
+    myblogs=BlogPost.objects.all()
+    bloglikes=[]
+    for i in myblogs:
+        bloglikes.append(i.number_of_likes())
+    print(bloglikes)
+    pop_blog=BlogPost.objects.filter(likes=max(bloglikes))
+    print(pop_blog)
+    params={"pop_blog":pop_blog}
+    return render(request,"blog/popularblogs.html",params)
+
 def search(request):
     messages.success(request, "Search results: ")
     query=request.POST.get("query")

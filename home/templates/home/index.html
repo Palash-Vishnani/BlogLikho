@@ -73,9 +73,7 @@
 
               <h2>Popular Blogs</h2>
               <p>Click the button given below to get the most popular blogs published on BlogLikho.com</p>
-              <form class="d-flex" action="/blogs/search" method="POST">{% csrf_token %}
-                    <input class="form-control me-2" type="hidden" id="maxlikes" name="query" value="3">
-                    <button class="btn btn-secondary" type="submit">View details »</button></form>
+              <p><a class="btn btn-secondary" href="/blogs/popularblogs">View details »</a></P>
             </div><!-- /.col-lg-4 -->
             <div class="col-lg-4">
               <img class="bd-placeholder-img rounded-circle" width="140" height="140"
