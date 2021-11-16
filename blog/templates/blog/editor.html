@@ -1,35 +1,74 @@
 {% extends 'blog/basic.html' %}
-
-<script src='https://cdn.tiny.cloud/1/6aoyapavbyzdpups5j8hy1i14o0omeq8c64apoactiw6tpws/tinymce/5/tinymce.min.js' referrerpolicy="origin">
-  </script>
-
+{% block title %}Editor - BlogLikho{% endblock %}
 {% block body %}
   <div class="container my-4">
-  <h2>This page is still in progress. Till then go checkout the blogs published by the developers.</h2>
-  {% comment %} <form method="post">
-    <textarea id="mytextarea" name="mytextarea">
-      Hello, World!
-    </textarea>
-  </form> {% endcomment %}
+  <h1 class="mb-4" style="text-align:center;">Blog Editor</h1>
+  <div class="form-group">
+  <form method="POST" enctype="multipart/form-data">{% csrf_token %}
+  <!-- <div class="row">
+  <div class="mb-3 col-md-6">
+  <label for="author" class="form-label" style="font-weight: bold;">Author</label>
+  <input type="text" class="form-control" id="author" name="author" placeholder="" required>
+</div>
+<div class="mb-3 col-md-6">
+  <label for="title" class="form-label" style="font-weight: bold;">Title</label>
+  <input type="text" class="form-control" id="title" name="title" placeholder="Blog title" required>
+</div>
+</div>
+<div class="mb-3">
+  <label for="category" class="form-label" style="font-weight: bold;">Category</label>
+  <select class="form-select" aria-label="Default select example" onchange="myFunction(event)">
+    <option selected>Open this select menu</option>
+    <option value="Coding Blogs">Coding Blogs</option>
+    <option value="Sports Blogs">Sports Blogs</option>
+    <option value="Traveling Blogs">Traveling Blogs</option>
+    <option value="Educational Blogs">Educational Blogs</option>
+    <option value="Business Blogs">Business Blogs</option>
+    <option value="Marketing Blogs">Marketing Blogs</option>
+    <option value="Technology Blogs">Technology Blogs</option>
+    <option value="Sales Blogs">Sales Blogs</option>
+  </select>
+  <input type="hidden" id="myText" name="category" value="Blogs">
+</div>
+<div class="mb-3">
+  <label for="heading" class="form-label" style="font-weight: bold;">Heading</label>
+  <input type="text" class="form-control" id="heading" name="heading" placeholder="" required>
+</div>
+<div class="mb-3">
+  <label for="body" class="form-label" style="font-weight: bold;">Body</label>
+  <textarea class="form-control" id="body" name="body" rows="4" required></textarea>
+</div>
+<div class="mb-3">
+  <label for="about" class="form-label" style="font-weight: bold;">About you</label>
+  <textarea class="form-control" id="about" rows="3" name="about" placeholder="Write a bit about yourself" required></textarea>
+</div>
+<div class="mb-3">
+  <input class="form-control" type="hidden" id="pic" name="pic" value="default.jpeg">
+</div> -->
+{{form.as_p}}
+{{form.media}}
+<div class="mb-3">
+  <label for="category" class="form-label" style="font-weight: bold;">Category</label>
+  <select class="form-select" aria-label="Default select example" onchange="myFunction(event)">
+    <option selected>Open this select menu</option>
+    <option value="Coding Blogs">Coding Blogs</option>
+    <option value="Sports Blogs">Sports Blogs</option>
+    <option value="Traveling Blogs">Traveling Blogs</option>
+    <option value="Educational Blogs">Educational Blogs</option>
+    <option value="Business Blogs">Business Blogs</option>
+    <option value="Marketing Blogs">Marketing Blogs</option>
+    <option value="Technology Blogs">Technology Blogs</option>
+    <option value="Sales Blogs">Sales Blogs</option>
+  </select>
+  <!-- <input type="hidden" id="myText" name="category" value="Blogs"> -->
+</div>
+<button type="submit" class="publish btn btn-success">Publish</button>
+</form>
+</div>
   </div>
 {% endblock %}
-
-  {% block js %}
-    tinymce.init({
-      selector: '#mytextarea',
-      height: 500,
-    plugins: [
-      'advlist autolink link image lists charmap print preview hr anchor pagebreak',
-      'searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking',
-      'table emoticons template paste help'
-    ],
-    toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | ' +
-      'bullist numlist outdent indent | link image | print preview media fullscreen | ' +
-      'forecolor backcolor emoticons | help',
-    menu: {
-      favs: {title: 'My Favorites', items: 'code visualaid | searchreplace | emoticons'}
-    },
-    menubar: 'favs file edit view insert format tools table help',
-    content_css: 'css/content.css'
-    });
-  {% endblock %}
+{% block js %}
+function myFunction(e){
+  document.getElementById("myText").value=e.target.value
+}
+{% endblock %}

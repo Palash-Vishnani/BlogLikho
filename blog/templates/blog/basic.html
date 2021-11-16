@@ -35,7 +35,6 @@
     <link rel="mask-icon" href="/docs/5.1/assets/img/favicons/safari-pinned-tab.svg" color="#7952b3">
     <link rel="icon" href="/docs/5.1/assets/img/favicons/favicon.ico">
     <meta name="theme-color" content="#7952b3">
-
     <style>{% block css %}{% endblock %}</style>
 </head>
 
@@ -54,7 +53,18 @@
                         <a class="nav-link {% block activehome %}{% endblock %}" aria-current="page" href="/">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {% block activeblogs %}{% endblock %}" aria-current="page" href="/blogs">Blogs</a>
+                        <a class="nav-link {% block activeblogs %}{% endblock %}" aria-current="page" href="/blogs">Blogs by Developers</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Create Blog
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="/blogs/createblog">Write a blog</a></li>
+                        <li><a class="dropdown-item" href="#">My blogs</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="/blogs/blog_ideas">Blog ideas</a></li>
+                    </ul>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link {% block activeabout %}{% endblock %}" href="/About">About</a>
@@ -75,7 +85,7 @@
                             Hello {{request.user}}
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown" style="margin-top: 1.125rem; margin-left: -50px;">
-                            <li><a class="dropdown-item" href="/blogs/createblog">Write a Blog</a></li>
+                            <li><a class="dropdown-item" href="#">My Profile</a></li>
                             <li><a class="dropdown-item" href="/blogs/blogpost/1">Refer Sample Blog</a></li>
                             <li>
                                 <hr class="dropdown-divider">

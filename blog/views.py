@@ -1,10 +1,15 @@
+from django.core import exceptions
+from django.db.models import fields
 from django.http.response import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render,redirect,get_object_or_404
+from django.utils.timezone import now
+from blog.forms import PostForm
 from blog.models import BlogComment, BlogPost
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth import authenticate,login,logout
 from django.urls import reverse
+from datetime import date
 
 # Create your views here.
 def index(request):
@@ -13,7 +18,35 @@ def index(request):
     return render(request,"blog/index.html",params)
 
 def createblog(request):
-    return render(request,"blog/editor.html")
+    if request.method=="POST":
+        form=PostForm(request.POST, request.FILES)
+        # author=request.POST.get("author")
+        # title=request.POST.get("title")
+        today=date.today()
+        # category=request.POST.get("category")
+        # heading=request.POST.get("heading")
+        # body=request.POST.get("body")
+        # about=request.POST.get("about")
+        # pic=request.POST.get("pic")
+        # new_post=BlogPost(form,pub_date=today,category=category)
+        # new_post.save()
+        if form.is_valid():
+            # post_item=form.save(commit=False)
+            # post_item.save()
+            author=form.cleaned_data['author']
+            title=form.cleaned_data['title']
+            category=form.cleaned_data['category']
+            heading2=form.cleaned_data['heading2']
+            content2=form.cleaned_data['content2']
+            about=form.cleaned_data['about']
+            image=form.cleaned_data['image']
+            post_item=BlogPost(author=author,title=title,pub_date=today,category=category,heading2=heading2,content2=content2,about=about,image=image)
+            post_item.save()
+            messages.success(request,"Your blog is published successfully.")
+            return redirect("/blogs")
+    else:
+        form=PostForm()
+    return render(request,"blog/editor.html",{'form':form})
 
 def BlogPostLike(request, pk):
     post = get_object_or_404(BlogPost, blog_id=request.POST.get("blogpost_id"))
@@ -21,12 +54,19 @@ def BlogPostLike(request, pk):
     return HttpResponseRedirect(reverse('blogpost', args=[str(pk)]))
 
 def blogpost(request,blogid):
-    post=BlogPost.objects.get(blog_id=blogid)
-    comments=BlogComment.objects.filter(post=post)
-    query_set=BlogPost.objects.all()
-    total_likes=post.number_of_likes()
-    params={"post":post,"range":len(query_set),"comments":comments,"total_likes":total_likes}
-    return render(request,"blog/blogpost.html",params)
+    try:
+        post=BlogPost.objects.get(blog_id=blogid)
+        print(len(str(post)))
+        comments=BlogComment.objects.filter(post=post)
+        myblogs=BlogPost.objects.all()
+        blogids=[]
+        for i in myblogs:
+            blogids.append(i.blog_id)
+        total_likes=post.number_of_likes()
+        params={"post":post,"range":max(blogids),"comments":comments,"total_likes":total_likes}
+        return render(request,"blog/blogpost.html",params)
+    except:
+        return HttpResponse("Error 404: This page is not found.")
 
 def popularblogs(request):
     myblogs=BlogPost.objects.all()

@@ -1,3 +1,5 @@
+from django import forms
+from django.db.models import fields
 from django.http.response import HttpResponse, HttpResponseRedirect
 from django.shortcuts import redirect, render, get_object_or_404
 from django.contrib import messages
@@ -6,6 +8,8 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate,login,logout
 from blog.models import BlogPost
 from django.urls import reverse
+from datetime import date
+from blog.forms import PostForm
 
 # Create your views here.
 def index(request):
@@ -15,7 +19,35 @@ def about(request):
     return render(request,"home/About.html")
 
 def createblog(request):
-    return render(request,"blog/editor.html")
+    if request.method=="POST":
+        form=PostForm(request.POST, request.FILES)
+        # author=request.POST.get("author")
+        # title=request.POST.get("title")
+        today=date.today()
+        # category=request.POST.get("category")
+        # heading=request.POST.get("heading")
+        # body=request.POST.get("body")
+        # about=request.POST.get("about")
+        # pic=request.POST.get("pic")
+        # new_post=BlogPost(form,pub_date=today,category=category)
+        # new_post.save()
+        if form.is_valid():
+            # post_item=form.save(commit=False)
+            # post_item.save()
+            author=form.cleaned_data['author']
+            title=form.cleaned_data['title']
+            category=form.cleaned_data['category']
+            heading2=form.cleaned_data['heading2']
+            content2=form.cleaned_data['content2']
+            about=form.cleaned_data['about']
+            image=form.cleaned_data['image']
+            post_item=BlogPost(author=author,title=title,pub_date=today,category=category,heading2=heading2,content2=content2,about=about,image=image)
+            post_item.save()
+            messages.success(request,"Your blog is published successfully.")
+            return redirect("/blogs")
+    else:
+        form=PostForm()
+    return render(request,"blog/editor.html",{'form':form})
 
 def contact(request):
     if request.method=="POST":

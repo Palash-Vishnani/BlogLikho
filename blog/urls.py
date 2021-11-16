@@ -1,11 +1,12 @@
 from django.urls.resolvers import URLPattern
 from . import views
 from django.urls import path
-
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns=[
     path('',views.index,name='bloghome'),
-    path("blogs/createblog",views.createblog,name="createblog"),
+    path("createblog",views.createblog,name="createblog"),
     path("popularblogs",views.popularblogs,name="popularblogs"),
     path('blogpost/<int:blogid>',views.blogpost,name="blogpost"),
     path("search",views.search,name="search"),
