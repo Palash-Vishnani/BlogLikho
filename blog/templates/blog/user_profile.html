@@ -1,0 +1,22 @@
+{% extends 'blog/basic.html' %}
+{% block title %}My Profile - BlogLikho{% endblock %}
+{% block body %}
+{% load static %}
+  <div class="container my-4">
+  <h1 class="mb-4" style="text-align:center;">My Profile</h1>
+  <div class="form-group">
+
+  <div class="container my-5" style="text-align: center;">
+    <div class="userlock">
+      <img src="{% static 'blog/userlock.png' %}" alt="">
+    </div>
+    <div class="sorry my-5">
+      <h2>This webpage is under development.</h2>
+      <h4>User blogs feature will be integrated soon, till then have a look at blogs by developers.</h4>
+    </div>
+  </div>
+</div>
+  </div>
+{% endblock %}
+{% block js %}
+{% endblock %}

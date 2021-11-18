@@ -33,6 +33,13 @@
 
           <!-- Three columns of text below the carousel -->
           <div class="row">
+          <div class="col-lg-4">
+              <img class="bd-placeholder-img rounded-circle" width="150" height="150" src="{% static 'home/palash.jpeg' %}" alt=" ">
+
+              <h2>Palash Vishnani</h2>
+              <p>Click the below button to check out my projects and profile on LinkedIn.</p>
+              <p><a class="btn btn-secondary" target="_blank" href="https://www.linkedin.com/in/palash-vishnani-957478193">LinkedIn »</a></p>
+            </div><!-- /.col-lg-4 -->
             <div class="col-lg-4">
 
 
@@ -41,13 +48,6 @@
               <h2>Shreesh Singh</h2>
               <p>To know more about me please visit my LinkedIn profile by clickin the below botton.</p>
               <p><a class="btn btn-secondary" target="_blank" href="https://www.linkedin.com/in/shreesh-singh-7324a4194">LinkedIn »</a></p>
-            </div><!-- /.col-lg-4 -->
-            <div class="col-lg-4">
-              <img class="bd-placeholder-img rounded-circle" width="150" height="150" src="{% static 'home/palash.jpeg' %}" alt=" ">
-
-              <h2>Palash Vishnani</h2>
-              <p>Click the below button to check out my projects and profile on LinkedIn.</p>
-              <p><a class="btn btn-secondary" target="_blank" href="https://www.linkedin.com/in/palash-vishnani-957478193">LinkedIn »</a></p>
             </div><!-- /.col-lg-4 -->
             <div class="col-lg-4">
               <img class="bd-placeholder-img rounded-circle" width="150" height="150" src="{% static 'home/feedback.jpg' %}" alt=" ">
@@ -67,7 +67,7 @@
           <div class="col-md-7">
 
 
-            <h2 class="featurette-heading">BlogLikho.com <span class="text-muted"></span></h2>
+            <h2 class="featurette-heading" style="text-align:center;">BlogLikho.com <span class="text-muted"></span></h2>
             <p class="lead"><strong>BlogLikho is one of fully responsive website and advanced integrated editor which allows user
               to perform various operations while writing blogs, this editor helps user to make his/her blog
               intresting and well presentable. We also added the feature of sharing the blogs, commenting on
@@ -78,9 +78,9 @@
               For now we are keeping the website as simple as possible to use and with time we will go
               on adding new features which will assits the users</strong></p>
           </div>
-          <div class="col-md-5">
-            <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto"
-              src="{% static 'home/Shreesh_palash.jpg' %}" alt="">
+          <div class="col-md-5" style="text-align:center;">
+            <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" style="height:310px;"
+              src="{% static 'home/BlogLikho.jpeg' %}" alt="">
 
 
 
@@ -94,7 +94,7 @@
             <h2 class="featurette-heading" style="text-align:center;">Palash Vishnani 
             </h2>
         <p class="lead"><strong style="font-size:17px;"><pre>
-  Hey, this is Palash Vishnani, a full stack developer and a freelancer. A kick start to my
+  Hey, this is Palash Vishnani, a full stack developer and freelancer. A kick start to my
   journey of gaining interest in technical and development field took place when I chose science and
   mathematics (PCM) as my majors after 10th standard. I was studying in St. Mary’s Convent Senior Secondary
   School, Dewas (CBSC Board) but soon after 11th standard I dropped out of school and took admission in a
@@ -143,8 +143,8 @@
   The aim of my life is to kick start my development career with a great MNC's.
   </pre></strong>  </p>
           </div>
-          <div class="col-md-3">
-            <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto"
+          <div class="col-md-3" style="text-align:center;">
+            <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" style="height:503px;"
               src="{% static 'home/shreesh_photo.jpg' %}" alt="">
 
 
@@ -152,7 +152,7 @@
           </div>
         </div>
 
-        <hr class="featurette-divider">
+        {% comment %} <hr class="featurette-divider"> {% endcomment %}
 
         <!-- /END THE FEATURETTES -->
 

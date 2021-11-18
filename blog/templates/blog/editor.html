@@ -1,9 +1,11 @@
 {% extends 'blog/basic.html' %}
 {% block title %}Editor - BlogLikho{% endblock %}
 {% block body %}
+{% load static %}
   <div class="container my-4">
   <h1 class="mb-4" style="text-align:center;">Blog Editor</h1>
   <div class="form-group">
+  {% if user.is_superuser %}
   <form method="POST" enctype="multipart/form-data">{% csrf_token %}
   <!-- <div class="row">
   <div class="mb-3 col-md-6">
@@ -48,7 +50,7 @@
 {{form.as_p}}
 {{form.media}}
 <div class="mb-3">
-  <label for="category" class="form-label" style="font-weight: bold;">Category</label>
+  <label for="category" class="form-label">Category:</label>
   <select class="form-select" aria-label="Default select example" onchange="myFunction(event)">
     <option selected>Open this select menu</option>
     <option value="Coding Blogs">Coding Blogs</option>
@@ -64,6 +66,17 @@
 </div>
 <button type="submit" class="publish btn btn-success">Publish</button>
 </form>
+  {% else %}
+  <div class="container my-5" style="text-align: center;">
+    <div class="userlock">
+      <img src="{% static 'blog/userlock.png' %}" alt="">
+    </div>
+    <div class="sorry my-5">
+      <h2>This webpage is under development.</h2>
+      <h4>User blogs feature will be integrated soon, till then have a look at blogs by developers.</h4>
+    </div>
+  </div>
+  {% endif %}
 </div>
   </div>
 {% endblock %}

@@ -20,6 +20,8 @@ class BlogPost(models.Model):
     about=models.TextField()
     likes=models.ManyToManyField(User, related_name="blogpost_like")
     image=models.ImageField(upload_to="blog/images")
+    linkedin_link=models.CharField(max_length=500,blank=True)
+    other_link=models.CharField(max_length=500,blank=True)
   
     def number_of_likes(self):
         return self.likes.count()

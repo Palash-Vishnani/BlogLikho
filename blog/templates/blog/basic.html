@@ -61,7 +61,7 @@
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="/blogs/createblog">Write a blog</a></li>
-                        <li><a class="dropdown-item" href="#">My blogs</a></li>
+                        <li><a class="dropdown-item" href="/blogs/my_blogs">My blogs</a></li>
                         <li><hr class="dropdown-divider"></li>
                         <li><a class="dropdown-item" href="/blogs/blog_ideas">Blog ideas</a></li>
                     </ul>
@@ -85,7 +85,7 @@
                             Hello {{request.user}}
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown" style="margin-top: 1.125rem; margin-left: -50px;">
-                            <li><a class="dropdown-item" href="#">My Profile</a></li>
+                            <li><a class="dropdown-item" href="/blogs/userprofile">My Profile</a></li>
                             <li><a class="dropdown-item" href="/blogs/blogpost/1">Refer Sample Blog</a></li>
                             <li>
                                 <hr class="dropdown-divider">
@@ -107,7 +107,7 @@
   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 </div>
     {% endfor %}
-
+{% load static %}
     <!-- Login Modal -->
     <div class="modal fade" id="LoginModal" tabindex="-1" aria-labelledby="LoginModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -194,10 +194,26 @@
     {% block body %}
     {% endblock %}
     <!-- FOOTER -->
-  <footer class="container">
-    <p class="float-end"><a href="#">Back to top</a></p>
-    <p>© 2021–2024 Company, Inc. · <a href="#">Privacy</a> · <a href="#">Terms</a></p>
+<div class="container">
+  <footer class="py-3 mt-4">
+    <ul class="nav justify-content-center pb-3 mb-3">
+      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
+      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Features</a></li>
+      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Pricing</a></li>
+      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FAQs</a></li>
+      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>
+    </ul>
+    <hr>
+      <div class="d-flex justify-content-between py-4 my-1">
+      <p class="text-center text-muted ">© 2021 Company, Inc. All rights reserved.</p>
+      <ul class="list-unstyled d-flex">
+        <li class="ms-3"><a class="link-dark" target="_blank" href="https://github.com/Palash-Vishnani/BlogLikho"><img src="{% static 'blog/gh_logo3.png' %}" class="bi" width="30" height="30" alt=""></a></li>
+        <li class="ms-3"><a class="link-dark" target="_blank" href="#"><img src="{% static 'blog/ig_logo2.png' %}" class="bi" width="24" height="24" alt=""></a></li>
+        <li class="ms-3"><a class="link-dark" target="_blank" href="#"><img src="{% static 'blog/fb_logo.png' %}" class="bi" width="24" height="24" alt=""></a></li>
+      </ul>
+    </div>
   </footer>
+</div>
 
 </body>
 <script>{% block js %}{% endblock %}</script>

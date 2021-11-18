@@ -7,6 +7,8 @@ from django.conf.urls.static import static
 urlpatterns=[
     path('',views.index,name='bloghome'),
     path("createblog",views.createblog,name="createblog"),
+    path("userprofile",views.userprofile,name="userprofile"),
+    path("my_blogs",views.my_blogs,name="my_blogs"),
     path("popularblogs",views.popularblogs,name="popularblogs"),
     path('blogpost/<int:blogid>',views.blogpost,name="blogpost"),
     path("search",views.search,name="search"),

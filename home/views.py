@@ -40,14 +40,22 @@ def createblog(request):
             heading2=form.cleaned_data['heading2']
             content2=form.cleaned_data['content2']
             about=form.cleaned_data['about']
+            linkedin=form.cleaned_data['linkedin_link']
+            otherlink=form.cleaned_data['other_link']
             image=form.cleaned_data['image']
-            post_item=BlogPost(author=author,title=title,pub_date=today,category=category,heading2=heading2,content2=content2,about=about,image=image)
+            post_item=BlogPost(author=author,title=title,pub_date=today,category=category,heading2=heading2,content2=content2,about=about,linkedin_link=linkedin,other_link=otherlink,image=image)
             post_item.save()
             messages.success(request,"Your blog is published successfully.")
             return redirect("/blogs")
     else:
         form=PostForm()
     return render(request,"blog/editor.html",{'form':form})
+
+def userprofile(request):
+    return render(request,"blog/user_profile.html")
+
+def my_blogs(request):
+    return render(request,"blog/myblogs.html")
 
 def contact(request):
     if request.method=="POST":
